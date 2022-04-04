@@ -26,6 +26,15 @@ function generateGrid(number_of_cells, selector, element_name, class_name) {
     }
   }
 
-  
+  // Creo una funzione che selezioni TUTTI gli elementi creati
+  function selectCells(selector) {
+    //   Dichiaro una variabile dove seleziono gli elementi
+    const cells = document.querySelectorAll(selector)
+    return cells
+  }
 
+
+
+  
   generateGrid(100, '.cells', 'div', 'cell')
+//   fillCells('.cell')
