@@ -18,11 +18,13 @@ nav.navbar {
 main {
     background-color: aquamarine;
     padding: 5rem 0;
+    height: 1000px;
 }
 
 .field {
    width: 500px;
    margin: auto;
+  
 }
 
 .cells {
@@ -41,4 +43,12 @@ main {
 
   .selected {
       background-color: cornflowerblue;
+      color: white;
+  }
+
+  footer {
+      height: 70px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
   }

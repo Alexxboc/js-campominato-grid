@@ -15,14 +15,22 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 function generateGrid(number_of_cells, selector, element_name, class_name) {
     // Seleziono l'elemento contenitore nella DOM
     const cellsElement = document.querySelector(selector)
+    // Creo una stringa vuota per evitare la concatenazione delle griglie
+    cellsElement.innerHTML = ''
     // Genero il numero di celle con un ciclo for
     for (let i = 1; i <= number_of_cells; i++) {
          // Dichiaro una variabile dove creo l'elemento della DOM
-      const cell = document.createElement(element_name)
+        const cell = document.createElement(element_name)
+        // Creo una costante per stampare i numeri
+        const gridNumbers = i
+        console.log(gridNumbers);
         // Aggiungo la classe all'elemento 
-      cell.classList.add(class_name)
+        cell.classList.add(class_name)
         // Appendo l'elemento nella DOM
-      cellsElement.append(cell)
+        cell.innerHTML = gridNumbers
+        cellsElement.append(cell)
+    //   Scrivo i numeri nelle celle
+        
     }
   }
 
@@ -49,7 +57,23 @@ function activateCell (selector, active_class) {
     }
 }
 
-  
-  generateGrid(100, '.cells', 'div', 'cell')
+// Seleziono il bottone
+const button = document.getElementById(`button`);
+
+button.addEventListener('click', function(){
+    // Estrapolo il valore del livello di diofficoltà
+    let difficulty = document.getElementById('level_difficulty').value
+    if(difficulty === 'Difficoltà 1') {
+        generateGrid(100, '.cells', 'div', 'cell')
+
+    } else if (difficulty === 'Difficoltà 2') {
+        generateGrid(81, '.cells', 'div', 'cell')
+    } else {
+        generateGrid(49, '.cells', 'div', 'cell')
+    }
+})
+
+
   activateCell('.cell', 'selected')
-//   fillCells('.cell')
+
+  
