@@ -33,8 +33,23 @@ function generateGrid(number_of_cells, selector, element_name, class_name) {
     return cells
   }
 
-
+// Creo una funzione per la classe active 
+function activateCell (selector, active_class) {
+    // Dichiaro una variabile per la selezione delle celle
+    const cells = selectCells(selector)
+    // Creo un ciclo for
+    for(let i = 0; i < cells.length; i++) {
+        // Dichiaro una variabile per le singole celle
+        const cell = cells[i]
+        // Creo un evento al click
+        cell.addEventListener('click', function() {
+            console.log(this);
+            this.classList.add(active_class)
+        })
+    }
+}
 
   
   generateGrid(100, '.cells', 'div', 'cell')
+  activateCell('.cell', 'selected')
 //   fillCells('.cell')
