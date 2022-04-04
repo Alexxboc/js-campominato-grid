@@ -65,15 +65,18 @@ button.addEventListener('click', function(){
     let difficulty = document.getElementById('level_difficulty').value
     if(difficulty === 'Difficoltà 1') {
         generateGrid(100, '.cells', 'div', 'cell')
+        activateCell('.cell', 'selected')
 
     } else if (difficulty === 'Difficoltà 2') {
         generateGrid(81, '.cells', 'div', 'cell')
+        activateCell('.cell', 'selected')
     } else {
         generateGrid(49, '.cells', 'div', 'cell')
+        activateCell('.cell', 'selected')
     }
 })
 
 
-  activateCell('.cell', 'selected')
+  
 
   
