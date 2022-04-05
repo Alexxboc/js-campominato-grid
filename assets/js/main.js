@@ -11,6 +11,31 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 
 */
 
+// Seleziono l'elemento nel DOM dal quale estrapolare il livello di difficoltà del gioco
+const button = document.getElementById(`button`);
+
+// Creo un evento al click
+button.addEventListener('click', function(){
+    // Estrapolo il valore del livello di diofficoltà
+    let difficulty = document.getElementById('level_difficulty').value
+    
+    // Creo le condizioni per i 3 livelli di difficoltà
+    if(difficulty === 'Difficoltà 1') {
+        generateGrid(100, '.cells', 'div', 'cell')
+        activateCell('.cell', 'selected')
+
+
+    } else if (difficulty === 'Difficoltà 2') {
+        generateGrid(81, '.cells', 'div', 'cell')
+        activateCell('.cell', 'selected')
+
+    } else {
+        generateGrid(49, '.cells', 'div', 'cell')
+        activateCell('.cell', 'selected')
+    }
+})
+
+
 // Creo una funzione che generi le celle
 function generateGrid(number_of_cells, selector, element_name, class_name) {
     // Seleziono l'elemento contenitore nella DOM
@@ -23,11 +48,12 @@ function generateGrid(number_of_cells, selector, element_name, class_name) {
         const cell = document.createElement(element_name)
         // Creo una costante per stampare i numeri
         const gridNumbers = i
-        console.log(gridNumbers);
+        // console.log(gridNumbers);
         // Aggiungo la classe all'elemento 
         cell.classList.add(class_name)
-        // Appendo l'elemento nella DOM
+        // Scrivo i numeri nelle caselle
         cell.innerHTML = gridNumbers
+        // Appendo l'elemento nella DOM
         cellsElement.append(cell)
     }
 }
@@ -50,33 +76,14 @@ function activateCell (selector, active_class) {
         const cell = cells[i]
         // Creo un evento al click
         cell.addEventListener('click', function() {
-            console.log(this);
+            // console.log(this);
             this.classList.add(active_class)
         })
     }
 }
 
 // Seleziono il bottone
-const button = document.getElementById(`button`);
 
-button.addEventListener('click', function(){
-    // Estrapolo il valore del livello di diofficoltà
-    let difficulty = document.getElementById('level_difficulty').value
-    
-    // Creo le condizioni per i 3 livelli di difficoltà
-    if(difficulty === 'Difficoltà 1') {
-        generateGrid(100, '.cells', 'div', 'cell')
-        activateCell('.cell', 'selected')
-
-    } else if (difficulty === 'Difficoltà 2') {
-        generateGrid(81, '.cells', 'div', 'cell')
-        activateCell('.cell', 'selected')
-
-    } else {
-        generateGrid(49, '.cells', 'div', 'cell')
-        activateCell('.cell', 'selected')
-    }
-})
 
 
   
