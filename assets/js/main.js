@@ -62,6 +62,8 @@ const button = document.getElementById(`button`);
 button.addEventListener('click', function(){
     // Estrapolo il valore del livello di diofficoltà
     let difficulty = document.getElementById('level_difficulty').value
+    
+    // Creo le condizioni per i 3 livelli di difficoltà
     if(difficulty === 'Difficoltà 1') {
         generateGrid(100, '.cells', 'div', 'cell')
         activateCell('.cell', 'selected')
@@ -69,7 +71,7 @@ button.addEventListener('click', function(){
     } else if (difficulty === 'Difficoltà 2') {
         generateGrid(81, '.cells', 'div', 'cell')
         activateCell('.cell', 'selected')
-        
+
     } else {
         generateGrid(49, '.cells', 'div', 'cell')
         activateCell('.cell', 'selected')
