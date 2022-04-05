@@ -11,29 +11,6 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 
 */
 
-// Seleziono l'elemento nel DOM dal quale estrapolare il livello di difficoltà del gioco
-const button = document.getElementById(`button`);
-
-// Creo un evento al click
-button.addEventListener('click', function(){
-    // Estrapolo il valore del livello di diofficoltà
-    let difficulty = document.getElementById('level_difficulty').value
-    
-    // Creo le condizioni per i 3 livelli di difficoltà
-    if(difficulty === 'Difficoltà 1') {
-        generateGrid(100, '.cells', 'div', 'cell')
-        activateCell('.cell', 'selected')
-
-
-    } else if (difficulty === 'Difficoltà 2') {
-        generateGrid(81, '.cells', 'div', 'cell')
-        activateCell('.cell', 'selected')
-
-    } else {
-        generateGrid(49, '.cells', 'div', 'cell')
-        activateCell('.cell', 'selected')
-    }
-})
 
 
 // Creo una funzione che generi le celle
@@ -46,6 +23,8 @@ function generateGrid(number_of_cells, selector, element_name, class_name) {
     for (let i = 1; i <= number_of_cells; i++) {
          // Dichiaro una variabile dove creo l'elemento della DOM
         const cell = document.createElement(element_name)
+        // Determino la grandezza delle celle
+        cell.style.width = `calc(100% / ${number_of_cells})`
         // Creo una costante per stampare i numeri
         const gridNumbers = i
         // console.log(gridNumbers);
@@ -82,7 +61,30 @@ function activateCell (selector, active_class) {
     }
 }
 
-// Seleziono il bottone
+// Seleziono l'elemento nel DOM dal quale estrapolare il livello di difficoltà del gioco
+const button = document.getElementById(`button`);
+
+// Creo un evento al click
+button.addEventListener('click', function(){
+    // Estrapolo il valore del livello di diofficoltà
+    let difficulty = document.getElementById('level_difficulty').value
+    
+    // Creo le condizioni per i 3 livelli di difficoltà
+    if(difficulty === 'Difficoltà 1') {
+        generateGrid(100, '.cells', 'div', 'cell')
+        activateCell('.cell', 'selected')
+
+
+    } else if (difficulty === 'Difficoltà 2') {
+        generateGrid(81, '.cells', 'div', 'cell')
+        activateCell('.cell', 'selected')
+
+    } else {
+        generateGrid(49, '.cells', 'div', 'cell')
+        activateCell('.cell', 'selected')
+    }
+})
+
 
 
 
