@@ -29,10 +29,9 @@ function generateGrid(number_of_cells, selector, element_name, class_name) {
         // Appendo l'elemento nella DOM
         cell.innerHTML = gridNumbers
         cellsElement.append(cell)
-    //   Scrivo i numeri nelle celle
-        
     }
-  }
+}
+        
 
   // Creo una funzione che selezioni TUTTI gli elementi creati
   function selectCells(selector) {
@@ -70,6 +69,7 @@ button.addEventListener('click', function(){
     } else if (difficulty === 'Difficoltà 2') {
         generateGrid(81, '.cells', 'div', 'cell')
         activateCell('.cell', 'selected')
+        
     } else {
         generateGrid(49, '.cells', 'div', 'cell')
         activateCell('.cell', 'selected')

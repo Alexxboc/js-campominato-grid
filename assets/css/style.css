@@ -1,14 +1,24 @@
-*{
+/* Common rules */
+
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* Utilities */
 .container {
     width: 1200px;
     margin: auto;
 }
 
+.selected {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+/* Header */
 nav.navbar {
     display: flex;
     justify-content: space-between;
@@ -22,6 +32,8 @@ nav select {
 nav button {
     padding: 0 20px;
 }
+
+/* Main */
 
 main {
     background-color: aquamarine;
@@ -52,10 +64,7 @@ main {
     justify-content: center;
   }
 
-  .selected {
-      background-color: cornflowerblue;
-      color: white;
-  }
+/* Footer */
 
   footer {
       height: 70px;
